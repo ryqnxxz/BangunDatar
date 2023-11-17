@@ -1,18 +1,19 @@
-import 'package:bangun_datar_kelas_b/controller/persegipanjang_controller.dart';
+import 'package:bangun_datar_kelas_b/controller/lingkaran_controller.dart';
+import 'package:bangun_datar_kelas_b/page/lingkaran_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PersegiPanjangPage extends StatelessWidget {
-  PersegiPanjangPage({super.key});
-  final PersegipanjangController _persegiController = Get.put(PersegipanjangController());
+class LingkaranPage extends StatelessWidget {
+  LingkaranPage({super.key});
+  final LingkaranController _lingkaranController = Get.put(LingkaranController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red,
         title: Text(
-          'Persegi Panjang Page',
+          'Persegi Page',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -36,18 +37,18 @@ class PersegiPanjangPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Image.asset(
-                      "assets/persegipanjang.png",
-                      height: 100,
+                      "assets/lingkarann.png",
+                      height: 150,
                       width: 150,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Text(
-                      'Persegi Panjang',
+                      'Bangun Datar Lingkaran',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 25,
                         fontFamily: 'sans-serif',
                       ),
                     ),
@@ -62,11 +63,11 @@ class PersegiPanjangPage extends StatelessWidget {
               margin: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 5.0),
               padding: EdgeInsets.all(15.0),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.red,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Text(
-                'Persegi panjang adalah sebuah bentuk geometri dua dimensi yang memiliki empat sudut siku-siku (90 derajat) dan keempat sisinya memiliki panjang yang berbeda. Dua pasang sisi berseberangan memiliki panjang yang sama, sehingga memiliki dua pasang sisi yang sejajar. Panjang dan lebar persegi panjang dapat berbeda', style:
+                'Persegi atau bujur sangkar adalah bangun datar dua dimensi yang dibentuk oleh empat buah rusuk yang sama panjang dan memiliki empat buah sudut yang kesemuanya adalah sudut siku-siku.', style:
               TextStyle(
                 color: Colors.white,
                 fontSize: 15,
@@ -85,20 +86,19 @@ class PersegiPanjangPage extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Column(
-
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: TextFormField(
                       onChanged: ((value) => {
-                        _persegiController.panjang = int.parse(value),
+                        _lingkaranController.jari = int.parse(value),
                       }),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
-                          labelText: "Panjang persegi panjang",
-                          hintText: "Masukkan panjang",
+                          labelText: "Jari-jari lingkaran",
+                          hintText: "Masukkan jari-jari",
                           hintStyle: TextStyle(color: Colors.grey.shade400),
                           contentPadding:
                           EdgeInsets.symmetric(vertical: 4, horizontal: 8),
@@ -119,40 +119,6 @@ class PersegiPanjangPage extends StatelessWidget {
                               BorderRadius.all(Radius.circular(10)))),
                     ),
                   ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                    child: TextFormField(
-                      onChanged: ((value) => {
-                        _persegiController.lebar = int.parse(value),
-                      }),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          labelText: "Lebar persegi panjang",
-                          hintText: "Masukkan lebar",
-                          hintStyle: TextStyle(color: Colors.grey.shade400),
-                          contentPadding:
-                          EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                          border: OutlineInputBorder(
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.grey),
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(10))),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.grey),
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(10))),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.blue),
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(10)))),
-                    ),
-                  ),
-
                   Container(
                     padding: EdgeInsets.all(15.0),
                     child: Row(
@@ -164,7 +130,7 @@ class PersegiPanjangPage extends StatelessWidget {
                               backgroundColor: Colors.blue,
                             ),
                             onPressed: () {
-                              _persegiController.hitungLuas();
+                              _lingkaranController.hitungLuas();
                             },
                             child: Text(
                               'Hitung Luas',
@@ -185,7 +151,7 @@ class PersegiPanjangPage extends StatelessWidget {
                               backgroundColor: Colors.red,
                             ),
                             onPressed: () {
-                              _persegiController.hitungKeliling();
+                              _lingkaranController.hitungKeliling();
                             },
                             child: Text(
                               'Hitung Keliling',
@@ -219,7 +185,7 @@ class PersegiPanjangPage extends StatelessWidget {
                     'Perhitungan :',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                      color: Colors.red,
                       fontSize: 20,
                     ),
                   ),
@@ -227,9 +193,9 @@ class PersegiPanjangPage extends StatelessWidget {
                     padding: const EdgeInsets.all(15.0),
                     child: Obx(
                           () => Text(
-                        _persegiController.hasil.value,
+                        _lingkaranController.hasil.value,
                         style: TextStyle(
-                          color: _persegiController.Color.value,
+                          color: _lingkaranController.Color.value,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
@@ -245,7 +211,7 @@ class PersegiPanjangPage extends StatelessWidget {
                     'Thank You',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                      color: Colors.red,
                       fontSize: 15,
                     ),
                   ),
